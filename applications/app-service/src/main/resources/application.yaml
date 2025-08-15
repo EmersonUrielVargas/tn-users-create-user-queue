@@ -1,0 +1,27 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: "tn-users-create-user-queue"
+  devtools:
+    add-properties: false
+  h2:
+    console:
+      enabled: true
+      path: "/h2"
+  profiles:
+    active: local
+aws:
+  region: "${AWS_REGION}"
+  dynamodb:
+    endpoint: "${AWS_ENDPOINT}"
+    users-table: "${AWS_DYNAMO_CREATE_USERS_TABLE}"
+entrypoint:
+  sqs:
+    region: "${AWS_REGION}"
+    endpoint: "${AWS_ENDPOINT}"
+    queueUrl: "${AWS_SQS_URL}"
+    waitTimeSeconds: 20
+    maxNumberOfMessages: 10
+    visibilityTimeoutSeconds: 10
+    numberOfThreads: 1

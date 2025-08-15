@@ -1,0 +1,38 @@
+<configuration>
+    <!--
+    Appender básico que nos permite escribir en la salida estandar de nuestra aplicación en formato de texto plano, en este caso es la Consola.
+    -->
+    <appender name="default" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p - [%15.15t] %-30.30logger{39} :  %m%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <!--
+    Appender que nos permite escribir en la salida estandar de nuestra aplicación en formato JSON,
+    en este caso es la Consola.
+    En este Appender estamos usando la librería Logstach.
+    -->
+    <appender name="jsonConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <!-- Logstach nos permite agregar Custom Fields que se agregan automaticamente a nuestro log -->
+            <customFields>{"application":"tn-users-mngr"}</customFields>
+
+            <!-- MaskingJsonGeneratorDecorator nos permite enmascarar el valor de los campos que son sensibles -->
+            <jsonGeneratorDecorator class="net.logstash.logback.mask.MaskingJsonGeneratorDecorator">
+                <defaultMask>**********</defaultMask>
+                <!-- Utilizamos el tag path para especificar el nombre del atributo en el JSON -->
+                <path>dni</path>
+                <path>name</path>
+                <path>password</path>
+                <path>phoneNumber</path>
+            </jsonGeneratorDecorator>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="default"/> <!-- Habilitamos el default Appender en Consola -->
+        <appender-ref ref="jsonConsoleAppender"/> <!-- Habilitamos el JSON Appander en Consola -->
+    </root>
+</configuration>

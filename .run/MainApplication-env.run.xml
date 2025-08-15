@@ -1,0 +1,20 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="MainApplication-env" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="corretto-17" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <option name="envFilePaths">
+      <option value="$PROJECT_DIR$/../users_queue.env" />
+    </option>
+    <option name="MAIN_CLASS_NAME" value="co.com.nequi.MainApplication" />
+    <module name="tn-users-create-user-queue.app-service.main" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="co.com.nequi.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
