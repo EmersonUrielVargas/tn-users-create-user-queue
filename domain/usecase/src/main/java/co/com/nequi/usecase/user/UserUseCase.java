@@ -2,7 +2,6 @@ package co.com.nequi.usecase.user;
 
 import co.com.nequi.model.enums.DomainMessage;
 import co.com.nequi.model.exceptions.BusinessException;
-import co.com.nequi.model.exceptions.UserException;
 import co.com.nequi.model.user.User;
 import co.com.nequi.model.user.gateways.UserPersistenceGateway;
 import lombok.RequiredArgsConstructor;

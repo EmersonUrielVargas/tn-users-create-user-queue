@@ -10,8 +10,7 @@ import java.util.Arrays;
 public enum DomainMessage {
 
     INTERNAL_ERROR("0-000", "0-000","Something went wrong, please try again"),
-    INTERNAL_ERROR_PERSISTENCE_ADAPTER("0-099", "0-099","Something went wrong with persistence adapter, please try " +
-            "again"),
+    INTERNAL_ERROR_PERSISTENCE_ADAPTER("0-099", "0-099","Something went wrong with persistence adapter, please try again"),
     USER_CREATION_FAIL("0-001","0-001","An error occurred while creating the user");
 
     private final String code;
