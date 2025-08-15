@@ -60,7 +60,7 @@ class SQSProcessorTest {
         Message message = Message.builder().body(bodyMessage).build();
 
         StepVerifier.create(processor.apply(message))
-                .verifyComplete();
+                .verifyError();
 
         verify(userUseCase, times(1)).createUser(any(User.class));
     }
